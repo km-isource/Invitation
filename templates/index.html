@@ -89,19 +89,11 @@
             <div class="row">
                 <div class="col-sm-12">
                     
-                    {% now "Y-m-d" as today_date %}
-                    {% now "H:i" as current_time %}
+                    
                     <div class="hero-wrapper v-center x-pad">
-                        {% if wedding.date|date:"Y-m-d" > today_date %}
                         <h2 data-animation-direction="fade" data-animation-delay="600">Save the Date</h2>
-                        {% elif wedding.date|date:"Y-m-d" == today_date %}
-                            {% if wedding.ceremony_time|time:"H:i" > current_time %}
-                                <h2 data-animation-direction="fade" data-animation-delay="600">It's Today</h2>
-                            {% else %}
-                                <h2 data-animation-direction="fade" data-animation-delay="600">It's Today</h2>
-                            {% endif %}
-                        {% else %}
-                        {% endif %}
+                                <!-- <h2 data-animation-direction="fade" data-animation-delay="600">It's Today</h2> -->
+                            
 
                         <h1 class="hero-title light ">
                             <span data-animation-direction="from-right" data-animation-delay="300">{{wedding.bride}}</span>
@@ -109,24 +101,20 @@
                             <span data-animation-direction="from-left" data-animation-delay="300">{{wedding.groom}}</span>
                         </h1>
                         
-                        {% if wedding.date|date:"Y-m-d" > today_date %}
                             <div class="hero-subtitle light">Will Get Married </div>
                             <div class="hero-subtitle light" data-animation-direction="fade" data-animation-delay="1200">
                                 ON {{ wedding.date|date:"F d, Y" }} at {{ wedding.ceremony_time|time:"g:i A" }}
                             </div>
-                        {% elif wedding.date|date:"Y-m-d" == today_date %}
-                            {% if wedding.ceremony_time|time:"H:i" > current_time %}
-                                <div class="hero-subtitle light"> The Wedding is starting at {{ wedding.ceremony_time|time:"g:i A" }}</div>
-                            {% else %}
-                                <div class="hero-subtitle light"> The Wedding started at {{ wedding.ceremony_time|time:"g:i A" }}</div>
-                            {% endif %}
-                        {% else %}
-                            <div class="hero-subtitle light">Got Married </div>
+                        
+                                <!-- <div class="hero-subtitle light"> The Wedding is starting at {{ wedding.ceremony_time|time:"g:i A" }}</div> -->
+                            
+                                <!-- <div class="hero-subtitle light"> The Wedding started at {{ wedding.ceremony_time|time:"g:i A" }}</div> -->
+                            
+                            <!-- <div class="hero-subtitle light">Got Married </div>
                             <div class="hero-subtitle light" data-animation-direction="fade" data-animation-delay="1200">
                                 ON {{ wedding.date|date:"F d, Y" }} at {{ wedding.ceremony_time|time:"g:i A" }}
                             </div>
-                            <h2 data-animation-direction="fade" data-animation-delay="600"> <br> <b> Thank you </b> </h2>
-                        {% endif %}
+                            <h2 data-animation-direction="fade" data-animation-delay="600"> <br> <b> Thank you </b> </h2> -->
 						
 						<!-- 
                         Countdown container 

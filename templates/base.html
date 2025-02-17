@@ -135,13 +135,15 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-12">
-							&copy; <span id="current-year"></span> 
-							<a href="{% url 'home' %}">{{wedding.bride}} & {{wedding.groom}}</a>, 
+							&nbsp; 📞 {{wedding.groom}}: <a href="tel:{{ wedding.groom_phone_number }}">{{ wedding.groom_phone_number }}</a>    {{wedding.bride}}: <a href="tel:{{ wedding.bride_phone_number }}">{{ wedding.bride_phone_number }}</a>   <br> 
+							&copy; <span id="current-year"></span>
+							<a href="{% url 'home' %}">{{ wedding.bride }} & {{ wedding.groom }}</a>, 
 							<span id="current-day-date-time"></span>, All Rights Reserved.
 						</div>
 					</div>
 				</div>
 			</div>
+			
 		</footer>
 		<!-- END FOOTER -->
 		
@@ -150,7 +152,6 @@
 	
 	
 	<!-- Google Maps API and Map Richmarker Library -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBHOXsTqoSDPQ5eC5TChvgOf3pAVGapYog"></script>
 	<script src="{% static 'js/richmarker.js' %}"></script>
 
     <!-- Libs -->
@@ -188,6 +189,38 @@
 		updateDateTime();
 		setInterval(updateDateTime, 1000); // Update time every second
 	</script>
+
+	<style>
+		.bg-image {
+			background-image: url('{{ media.image.url }}');
+			background-size: cover;
+			background-position: center;
+		}
+
+		.mapouter {
+			position: relative;
+			width: 100%;
+			max-width: 1200px; /* Increase max width */
+			height: 500px; /* Increase height */
+			margin: 0 auto; /* Center the map */
+			display: flex;
+			justify-content: center; /* Ensure map is centered */
+			align-items: center;
+		}
+		
+		.gmap_canvas {
+			overflow: hidden;
+			background: none !important;
+			width: 100%;
+			height: 100%;
+		}
+		
+		.gmap_iframe {
+			width: 100% !important;
+			height: 100% !important;
+		}
+		
+	</style>
 	
 </body>
 </html>

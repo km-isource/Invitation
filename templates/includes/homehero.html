@@ -1,0 +1,50 @@
+<!-- BEGIN HERO SECTION -->
+<div id="hero" class="bg-slideshow section-divider-bottom-1 section-divider-bg-color bg-image">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="v-center">
+                <div class="hero-divider-top light" data-animation-direction="from-top" data-animation-delay="700"></div>
+                
+                <h1 class="hero-title light">
+                    <span data-animation-direction="from-right" data-animation-delay="300">{{wedding.bride}}</span>
+                    <small data-animation-direction="from-top" data-animation-delay="300">&</small> 
+                    <span data-animation-direction="from-left" data-animation-delay="300">{{wedding.groom}}</span>
+                </h1>
+                
+            <div class="hero-divider-bottom light" data-animation-direction="from-bottom" data-animation-delay="700">
+
+                
+                <div class="hero-subtitle light">
+                    {% comment %} {% if wedding.date|date:"Y-m-d" > today_date %} {% endcomment %}
+                    <br> <h2 data-animation-direction="fade" data-animation-delay="600">Are Getting Married</h2>
+                    <div class="hero-subtitle light" data-animation-direction="fade" data-animation-delay="1200">
+                        ON {{ wedding.date|date:"F d, Y" }} at {{ wedding.ceremony_time|time:"g:i A" }}
+                    </div>
+                    {% comment %} {% elif wedding.date|date:"Y-m-d" == today_date %}
+                        {% if wedding.ceremony_time|time:"H:i" > current_time %}
+                            <h2 data-animation-direction="fade" data-animation-delay="600">Are Getting Married Today</h2>
+                        {% else %}
+                            <h2 data-animation-direction="fade" data-animation-delay="600">Got Married</h2>
+                            <div class="hero-subtitle light" data-animation-direction="fade" data-animation-delay="1200">
+                                ON {{ wedding.date|date:"F d, Y" }} at {{ wedding.ceremony_time|time:"g:i A" }}
+                            </div>
+                        {% endif %}
+                    {% else %}
+                    {% endif %} {% endcomment %}
+                </div>
+            </div>
+                
+                <!-- 
+                Countdown container 
+                Use the data attribute "date" to set the countdown date. 
+                E.g.: data-date="2022/09/20 3:00 PM"
+                -->
+                <br> <br> <div class="countdown" data-date="{{wedding.date|date:"Y-m-d"}} {{wedding.ceremony_time|time:"g:i A"}}" data-animation-direction="from-bottom" data-animation-delay="800"> </div>
+
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END HERO SECTION -->

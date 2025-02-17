@@ -1,0 +1,78 @@
+<!-- BEGIN BRIDE & GROOM SECTION -->
+<section class="section-bg-color overflow-content-over no-padding-top">
+		
+    <div class="section-bg-color overflow-content no-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col overflow-image-wrapper">
+                
+                    <div class="overflow-image-text extra-padding-top">
+                        <h2 class="title">He asker her & she said yes! <br>
+                            <p style="font-size: 20px;"> Ecclesiastes 4:9-12</p></h2>
+                        <p class="center">Two are better than one, because they have a good return for their labor. If either of them falls down, one can help the other up. But pity anyone who falls and has no one to help them up. A cord of three strands is not quickly broken.</p>
+                        <!--<p class="center"><a class="btn btn-primary" href="about-us.html">Our Love Story</a></p> -->
+                    </div>
+                    
+                    <div class="overflow-image flower">
+                        <img src="{{ media.bride_n_groom.url }}" alt="Couple Photo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+<!-- END BRIDE & GROOM SECTION -->
+
+
+<!-- BEGIN WEDDING INVITE SECTION -->
+<section id="the-wedding" class="parallax-background bg-color-overlay padding-divider-top bg-image">
+    <div class="section-divider-top-1 section-divider-bg-color off-section"></div><!-- The class "section-divider-top-1" can also be applied to the tag <section>. In this case, it was added on a new <div> because the tag <section> have all pseudo elements (::after and ::before) in use. -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <h2 class="section-title light">We're getting married</h2>
+                    
+                <!-- <h2 class="section-title light">We're getting married today</h2> -->
+                <!-- <h2 class="section-title light">We got married on</h2> -->
+                       
+                
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 center">
+                <div class="invite neela-style" data-animation-direction="from-left" data-animation-delay="100">
+                    <div class="invite_title">
+                        <div class="text">
+                            Save<small>the</small>Date
+                                
+                                    <!-- It's <br> Today -->
+                                    
+                                    <!-- We<small>did</small>It -->
+                                    
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="invite_info">
+                        <h2>{{wedding.bride}} <small>&</small> {{wedding.groom}}</h2>
+                            <div class="uppercase">Request the honor of your presence on their wedding day</div>
+                    
+                        
+                                <!-- It's Today -->
+                        
+                        <!-- <div class="uppercase">With heartfelt gratitude, we thank you for sharing on special day and making it even more memorable.</div> -->
+                            
+                        
+                        <div class="date">{{wedding.date|date}}<small>at {{wedding.ceremony_time}}</small></div>
+                        <div class="uppercase">{{wedding.ceremony_venue}}<br>{{wedding.ceremony_location}}</div>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END WEDDING INVITE SECTION -->

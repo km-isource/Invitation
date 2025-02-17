@@ -1,4 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
+{% block content %}
+
+
+{% comment %} {% load static %}
 {% now "Y-m-d" as today_date %}
 {% now "H:i" as current_time %}
 <!DOCTYPE html>
@@ -109,150 +114,15 @@
 				</div>
 			</div>
 		</header>
-		<!-- END HEADER -->
+		<!-- END HEADER --> {% endcomment %}
 		
 		
-		<!-- BEGIN HERO SECTION -->
-		<div id="hero" class="bg-slideshow section-divider-bottom-1 section-divider-bg-color bg-image">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="v-center">
-						<div class="hero-divider-top light" data-animation-direction="from-top" data-animation-delay="700"></div>
-						
-						<h1 class="hero-title light">
-							<span data-animation-direction="from-right" data-animation-delay="300">{{wedding.bride}}</span>
-							<small data-animation-direction="from-top" data-animation-delay="300">&</small> 
-							<span data-animation-direction="from-left" data-animation-delay="300">{{wedding.groom}}</span>
-						</h1>
-						
-						<div class="hero-divider-bottom light" data-animation-direction="from-bottom" data-animation-delay="700"></div>
+		
+		
+		{% include "includes/homehero.html" %}
 
-						
-                        <div class="hero-subtitle light">
-                            {% if wedding.date|date:"Y-m-d" > today_date %}
-                            <h2 data-animation-direction="fade" data-animation-delay="600">Are Getting Married</h2>
-                            <div class="hero-subtitle light" data-animation-direction="fade" data-animation-delay="1200">
-                                ON {{ wedding.date|date:"F d, Y" }} at {{ wedding.ceremony_time|time:"g:i A" }}
-                            </div>
-                            {% elif wedding.date|date:"Y-m-d" == today_date %}
-                                {% if wedding.ceremony_time|time:"H:i" > current_time %}
-                                    <h2 data-animation-direction="fade" data-animation-delay="600">Are Getting Married Today</h2>
-                                {% else %}
-                                    <h2 data-animation-direction="fade" data-animation-delay="600">Got Married</h2>
-                                    <div class="hero-subtitle light" data-animation-direction="fade" data-animation-delay="1200">
-                                        ON {{ wedding.date|date:"F d, Y" }} at {{ wedding.ceremony_time|time:"g:i A" }}
-                                    </div>
-                                {% endif %}
-                            {% else %}
-                            {% endif %}
-						</div>
-						
-						<!-- 
-                        Countdown container 
-						Use the data attribute "date" to set the countdown date. 
-						E.g.: data-date="2022/09/20 3:00 PM"
-                        -->
-						<div class="countdown" data-date="{{wedding.date|date:"Y-m-d"}} {{wedding.ceremony_time|time:"g:i A"}}" data-animation-direction="from-bottom" data-animation-delay="800"> </div>
-
-					</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- END HERO SECTION -->
+		{% include "includes/bridegroom.html" %}
 		
-		
-		<!-- BEGIN BRIDE & GROOM SECTION -->
-		<section class="section-bg-color overflow-content-over no-padding-top">
-		
-			<div class="section-bg-color overflow-content no-padding">
-				<div class="container">
-					<div class="row">
-						<div class="col overflow-image-wrapper">
-						
-							<div class="overflow-image-text extra-padding-top">
-								<h2 class="title">He asker her & she said yes! <br>
-									<p style="font-size: 20px;"> Ecclesiastes 4:9-12</p></h2>
-								<p class="center">Two are better than one, because they have a good return for their labor. If either of them falls down, one can help the other up. But pity anyone who falls and has no one to help them up. A cord of three strands is not quickly broken.</p>
-								<!--<p class="center"><a class="btn btn-primary" href="about-us.html">Our Love Story</a></p> -->
-							</div>
-							
-							<div class="overflow-image flower">
-								<img src="{{ media.bride_n_groom.url }}" alt="Couple Photo">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</section>
-		<!-- END BRIDE & GROOM SECTION -->
-		
-		
-		<!-- BEGIN WEDDING INVITE SECTION -->
-		<section id="the-wedding" class="parallax-background bg-color-overlay padding-divider-top bg-image">
-			<div class="section-divider-top-1 section-divider-bg-color off-section"></div><!-- The class "section-divider-top-1" can also be applied to the tag <section>. In this case, it was added on a new <div> because the tag <section> have all pseudo elements (::after and ::before) in use. -->
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-                        {% if wedding.date|date:"Y-m-d" > today_date %}
-                        <h2 class="section-title light">We're getting married</h2>
-                            {% elif wedding.date|date:"Y-m-d" == today_date %}
-                                {% if wedding.ceremony_time|time:"H:i" > current_time %}
-                                <h2 class="section-title light">We're getting married today</h2>
-                                {% else %}
-                                <h2 class="section-title light">We got married on</h2>
-                                {% endif %}
-                            {% else %}
-                            {% endif %}
-						
-					</div>
-				</div>
-				
-				<div class="row">
-					<div class="col-md-12 col-lg-10 offset-lg-1 col-xl-8 offset-xl-2 center">
-						<div class="invite neela-style" data-animation-direction="from-left" data-animation-delay="100">
-							<div class="invite_title">
-								<div class="text">
-                                    {% if wedding.date|date:"Y-m-d" > today_date %}
-                                    Save<small>the</small>Date
-                                        {% elif wedding.date|date:"Y-m-d" == today_date %}
-                                            {% if wedding.ceremony_time|time:"H:i" > current_time %}
-                                            It's <br> Today
-                                            {% else %}
-                                            We<small>did</small>It
-                                            {% endif %}
-                                        {% else %}
-                                        {% endif %}
-									
-								</div>
-							</div>
-							
-							<div class="invite_info">
-								<h2>{{wedding.bride}} <small>&</small> {{wedding.groom}}</h2>
-								{% if wedding.date|date:"Y-m-d" > today_date %}
-                                    <div class="uppercase">Request the honor of your presence on their wedding day</div>
-                            
-                                {% elif wedding.date|date:"Y-m-d" == today_date %}
-                                    {% if wedding.ceremony_time|time:"H:i" > current_time %}
-                                        It's Today
-                                {% else %}
-                                <div class="uppercase">With heartfelt gratitude, we thank you for sharing on special day and making it even more memorable.</div>
-                                    {% endif %}
-                                {% endif %}
-								
-								<div class="date">{{wedding.date|date}}<small>at {{wedding.ceremony_time}}</small></div>
-								<div class="uppercase">{{wedding.ceremony_venue}}<br>{{wedding.ceremony_location}}</div>
-								
-								
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- END WEDDING INVITE SECTION -->
 		
 		
 		<!-- BEGIN WEDDING DETAILS SECTION -->
@@ -323,111 +193,5 @@
 		</section>
 		<!-- END WEDDING LOCATION SECTION -->
 		
-		<div id="location">
-    
-			
-			<div class="map_pins_full">
-				<ul class="pins">
-					
-				</ul>
-			</div>
-		</div>
 		
-		
-		<!-- BEGIN FOOTER -->
-		<footer id="footer">
-			
-		
-			<div class="copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-sm-12">
-							&nbsp; 📞 {{wedding.groom}}: <a href="tel:{{ wedding.groom_phone_number }}">{{ wedding.groom_phone_number }}</a>    {{wedding.bride}}: <a href="tel:{{ wedding.bride_phone_number }}">{{ wedding.bride_phone_number }}</a>   <br> 
-							&copy; <span id="current-year"></span>
-							<a href="{% url 'home' %}">{{ wedding.bride }} & {{ wedding.groom }}</a>, 
-							<span id="current-day-date-time"></span>, All Rights Reserved.
-						</div>
-					</div>
-				</div>
-			</div>
-			
-		</footer>
-		<!-- END FOOTER -->
-		
-	</div>
-	<!-- END WRAPPER -->
-	
-	
-	<!-- Google Maps API and Map Richmarker Library -->
-	<script src="{% static 'js/richmarker.js' %}"></script>
-
-    <!-- Libs -->
-    <script src="{% static 'js/jquery-3.6.0.min.js' %}"></script>
-    <script src="{% static 'js/jquery-ui.min.js' %}"></script>
-    <script src="{% static 'js/jquery-migrate-3.3.2.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/jquery.placeholder.min.js' %}"></script>
-    <script src="{% static 'js/ismobile.js' %}"></script>
-    <script src="{% static 'js/retina.min.js' %}"></script>
-    <script src="{% static 'js/waypoints.min.js' %}"></script>
-    <script src="{% static 'js/waypoints-sticky.min.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
-    <script src="{% static 'js/lightbox.min.js' %}"></script>
-
-    <!-- Nicescroll script to handle gallery section touch slide -->
-    <script src="{% static 'js/jquery.nicescroll.js' %}"></script>
-
-    <!-- Hero Background Slideshow Script -->
-    <script src="{% static 'js/jquery.zoomslider.js' %}"></script>
-	
-	<!-- Template Scripts -->
-	<script src="{% static 'js/variables.js' %}"></script>
-	<script src="{% static 'js/scripts.js' %}"></script>
-	<script>
-		function updateDateTime() {
-			const now = new Date();
-			const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-			const formattedDate = now.toLocaleDateString('en-US', options);
-	
-			document.getElementById("current-year").textContent = now.getFullYear();
-			document.getElementById("current-day-date-time").textContent = formattedDate;
-		}
-	
-		updateDateTime();
-		setInterval(updateDateTime, 1000); // Update time every second
-	</script>
-
-	<style>
-		.bg-image {
-			background-image: url('{{ media.image.url }}');
-			background-size: cover;
-			background-position: center;
-		}
-
-		.mapouter {
-			position: relative;
-			width: 100%;
-			max-width: 1200px; /* Increase max width */
-			height: 500px; /* Increase height */
-			margin: 0 auto; /* Center the map */
-			display: flex;
-			justify-content: center; /* Ensure map is centered */
-			align-items: center;
-		}
-		
-		.gmap_canvas {
-			overflow: hidden;
-			background: none !important;
-			width: 100%;
-			height: 100%;
-		}
-		
-		.gmap_iframe {
-			width: 100% !important;
-			height: 100% !important;
-		}
-		
-	</style>
-	
-</body>
-</html>
+{% endblock %}
